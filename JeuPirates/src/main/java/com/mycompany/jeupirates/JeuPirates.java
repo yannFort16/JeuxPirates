@@ -4,6 +4,9 @@
 
 package com.mycompany.jeupirates;
 
+import java.awt.Frame;
+import javax.swing.JFrame;
+
 /**
  *
  * @author yannf
@@ -11,6 +14,7 @@ package com.mycompany.jeupirates;
 public class JeuPirates {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        JFrame zoneJeux = new Plateau();
+        zoneJeux.setVisible(true);
     }
 }
