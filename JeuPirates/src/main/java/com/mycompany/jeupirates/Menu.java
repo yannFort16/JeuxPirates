@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -35,14 +37,32 @@ public class Menu extends javax.swing.JFrame {
 
         jPanelWithBackgroundMenu = new components.JPanelWithBackground();
         jLabel1 = new javax.swing.JLabel();
-        StartButton = new javax.swing.JButton();
+        StartButton = new components.JButtonCustom();
+        try{
+            StartButton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        OptionButton = new components.JButtonCustom();
+        try{
+            OptionButton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
+        QuitButton = new components.JButtonCustom();
+        try{
+            QuitButton.setImage();
+        }catch (IOException e){
+            System.out.print("Button Icon Not found");
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Argonautes");
         setFocusable(false);
-        setIconImage(getIcon());
+        setIconImage(getIcon("Icon23.png"));
         setResizable(false);
 
+        jPanelWithBackgroundMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         try{
             jPanelWithBackgroundMenu.setImage("ressources/pirates_background.png");
         }catch (IOException e) {
@@ -54,10 +74,25 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
         jLabel1.setText("Argonautes");
 
-        StartButton.setText("Start Game");
-        StartButton.addActionListener(new java.awt.event.ActionListener() {
+        StartButton.setBorder(null);
+        StartButton.setText("Start");
+        StartButton.setFont(new java.awt.Font("Windlass", 0, 12)); // NOI18N
+
+        OptionButton.setBorder(null);
+        OptionButton.setText("Options");
+        OptionButton.setFont(new java.awt.Font("Windlass", 0, 12)); // NOI18N
+        OptionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StartButtonActionPerformed(evt);
+                OptionButtonActionPerformed(evt);
+            }
+        });
+
+        QuitButton.setBorder(null);
+        QuitButton.setText("Quit");
+        QuitButton.setFont(new java.awt.Font("Windlass", 0, 12)); // NOI18N
+        QuitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuitButtonActionPerformed(evt);
             }
         });
 
@@ -66,13 +101,16 @@ public class Menu extends javax.swing.JFrame {
         jPanelWithBackgroundMenuLayout.setHorizontalGroup(
             jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelWithBackgroundMenuLayout.createSequentialGroup()
-                .addContainerGap(375, Short.MAX_VALUE)
+                .addContainerGap(371, Short.MAX_VALUE)
                 .addGroup(jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWithBackgroundMenuLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWithBackgroundMenuLayout.createSequentialGroup()
-                        .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(QuitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(82, 82, 82))))
         );
         jPanelWithBackgroundMenuLayout.setVerticalGroup(
@@ -80,9 +118,13 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanelWithBackgroundMenuLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jLabel1)
-                .addGap(61, 61, 61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(QuitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(214, 214, 214))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,9 +141,14 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+    private void OptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_StartButtonActionPerformed
+    }//GEN-LAST:event_OptionButtonActionPerformed
+
+    private void QuitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_QuitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,18 +185,37 @@ public class Menu extends javax.swing.JFrame {
         });
     }
     
-    private Image getIcon(){
+    private Image getIcon(String filename){
         Image res = null;
         try{
-            res  = ImageIO.read(new File("ressources/Icon23.png"));
+            res  = ImageIO.read(new File("ressources/" + filename));
         }catch(IOException e){
             System.out.print("Icon not found");
         }
         return res;
     }
+    
+    private void setButtonIcon(JButton button){
+        ImageIcon defaultIcon = new ImageIcon("ressources/" + "ButtonNormal.png");
+        ImageIcon pressedIcon = new ImageIcon("ressources/" + "ButtonPressed.png");
+        
+        
+        if(defaultIcon != null && pressedIcon != null){ 
+            button.setIcon(defaultIcon);
+            button.setPressedIcon(pressedIcon);
+        }else{
+            System.out.print("button not loaded");
+        }
+        
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
+        button.setFocusPainted(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton StartButton;
+    private components.JButtonCustom OptionButton;
+    private components.JButtonCustom QuitButton;
+    private components.JButtonCustom StartButton;
     private javax.swing.JLabel jLabel1;
     private components.JPanelWithBackground jPanelWithBackgroundMenu;
     // End of variables declaration//GEN-END:variables
