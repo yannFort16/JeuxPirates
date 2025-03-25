@@ -14,7 +14,10 @@ import javax.swing.JFrame;
 public class JeuPirates {
 
     public static void main(String[] args) {
-        JFrame zoneJeux = new Plateau();
-        zoneJeux.setVisible(true);
+        JFrame menu = new Menu();
+        menu.setVisible(true);
+        
+        //JFrame zoneJeux = new Plateau();
+        //zoneJeux.setVisible(true);
     }
 }

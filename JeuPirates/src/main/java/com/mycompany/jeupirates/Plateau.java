@@ -26,80 +26,51 @@ public class Plateau extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ZoneInfo = new javax.swing.JPanel();
+        ZonePioche = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        PlateauCarte = new javax.swing.JPanel();
-        ZoneDrag = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        ZoneInfo = new javax.swing.JPanel();
+        ZoneJeux = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
-        ZoneInfo.setBackground(new java.awt.Color(255, 102, 51));
-        ZoneInfo.setLayout(new java.awt.GridLayout(3, 0));
+        ZonePioche.setBackground(new java.awt.Color(255, 153, 0));
+        ZonePioche.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("J1");
-        ZoneInfo.add(jLabel1);
+        jLabel1.setText("Pioche");
+        ZonePioche.add(jLabel1, new java.awt.GridBagConstraints());
 
-        jLabel3.setText("PIOCHE");
-        ZoneInfo.add(jLabel3);
+        getContentPane().add(ZonePioche, java.awt.BorderLayout.LINE_START);
 
-        jLabel2.setText("J2");
-        ZoneInfo.add(jLabel2);
+        ZoneInfo.setBackground(new java.awt.Color(0, 51, 255));
 
-        getContentPane().add(ZoneInfo, java.awt.BorderLayout.LINE_START);
-
-        PlateauCarte.setBackground(new java.awt.Color(153, 102, 255));
-
-        ZoneDrag.setOpaque(false);
-
-        javax.swing.GroupLayout ZoneDragLayout = new javax.swing.GroupLayout(ZoneDrag);
-        ZoneDrag.setLayout(ZoneDragLayout);
-        ZoneDragLayout.setHorizontalGroup(
-            ZoneDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1239, Short.MAX_VALUE)
-        );
-        ZoneDragLayout.setVerticalGroup(
-            ZoneDragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ZoneInfoLayout = new javax.swing.GroupLayout(ZoneInfo);
+        ZoneInfo.setLayout(ZoneInfoLayout);
+        ZoneInfoLayout.setHorizontalGroup(
+            ZoneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        ZoneInfoLayout.setVerticalGroup(
+            ZoneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout PlateauCarteLayout = new javax.swing.GroupLayout(PlateauCarte);
-        PlateauCarte.setLayout(PlateauCarteLayout);
-        PlateauCarteLayout.setHorizontalGroup(
-            PlateauCarteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ZoneDrag, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(PlateauCarteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PlateauCarteLayout.createSequentialGroup()
-                    .addGap(206, 206, 206)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(933, Short.MAX_VALUE)))
+        getContentPane().add(ZoneInfo, java.awt.BorderLayout.LINE_END);
+
+        ZoneJeux.setBackground(new java.awt.Color(204, 0, 255));
+
+        javax.swing.GroupLayout ZoneJeuxLayout = new javax.swing.GroupLayout(ZoneJeux);
+        ZoneJeux.setLayout(ZoneJeuxLayout);
+        ZoneJeuxLayout.setHorizontalGroup(
+            ZoneJeuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 585, Short.MAX_VALUE)
         );
-        PlateauCarteLayout.setVerticalGroup(
-            PlateauCarteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ZoneDrag, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(PlateauCarteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PlateauCarteLayout.createSequentialGroup()
-                    .addGap(233, 233, 233)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(387, Short.MAX_VALUE)))
+        ZoneJeuxLayout.setVerticalGroup(
+            ZoneJeuxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        getContentPane().add(PlateauCarte, java.awt.BorderLayout.CENTER);
+        getContentPane().add(ZoneJeux, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,12 +111,9 @@ public class Plateau extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PlateauCarte;
-    private javax.swing.JPanel ZoneDrag;
     private javax.swing.JPanel ZoneInfo;
+    private javax.swing.JPanel ZoneJeux;
+    private javax.swing.JPanel ZonePioche;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
