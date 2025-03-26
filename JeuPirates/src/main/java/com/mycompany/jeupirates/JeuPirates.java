@@ -13,11 +13,11 @@ import javax.swing.JFrame;
  */
 public class JeuPirates {
 
-    public static void main(String[] args) {
-        JFrame menu = new Menu();
-        menu.setVisible(true);
-        
+    public static void main(String[] args) {        
         //JFrame zoneJeux = new Plateau();
         //zoneJeux.setVisible(true);
+        
+        JFrame game = new GameFrame();
+        game.setVisible(true);
     }
 }

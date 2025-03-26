@@ -7,22 +7,18 @@ package com.mycompany.jeupirates;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 /**
  *
  * @author yannf
  */
-public class Menu extends javax.swing.JFrame {
+public class GameFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form GameFrame
      */
-    public Menu() {
+    public GameFrame() {
         initComponents();
     }
 
@@ -35,8 +31,10 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        parentPanel = new javax.swing.JPanel();
+        menuPanel = new javax.swing.JPanel();
         jPanelWithBackgroundMenu = new components.JPanelWithBackground();
-        jLabel1 = new javax.swing.JLabel();
+        GameTitle = new javax.swing.JLabel();
         StartButton = new components.JButtonCustom();
         try{
             StartButton.setImage();
@@ -55,14 +53,21 @@ public class Menu extends javax.swing.JFrame {
         }catch (IOException e){
             System.out.print("Button Icon Not found");
         }
+        gamePanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Argonautes");
-        setFocusable(false);
         setIconImage(getIcon("Icon23.png"));
         setResizable(false);
 
+        parentPanel.setLayout(new java.awt.CardLayout());
+
         jPanelWithBackgroundMenu.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jPanelWithBackgroundMenu.setAlignmentX(0.0F);
+        jPanelWithBackgroundMenu.setAlignmentY(0.0F);
+        jPanelWithBackgroundMenu.setPreferredSize(new java.awt.Dimension(720, 480));
         try{
             jPanelWithBackgroundMenu.setImage("ressources/pirates_background.png");
         }catch (IOException e) {
@@ -71,12 +76,17 @@ public class Menu extends javax.swing.JFrame {
         }
         jPanelWithBackgroundMenu.repaint();
 
-        jLabel1.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
-        jLabel1.setText("Argonautes");
+        GameTitle.setFont(new java.awt.Font("Windlass", 0, 48)); // NOI18N
+        GameTitle.setText("Argonautes");
 
         StartButton.setBorder(null);
         StartButton.setText("Start");
         StartButton.setFont(new java.awt.Font("Windlass", 0, 12)); // NOI18N
+        StartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartButtonActionPerformed(evt);
+            }
+        });
 
         OptionButton.setBorder(null);
         OptionButton.setText("Options");
@@ -104,7 +114,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(371, Short.MAX_VALUE)
                 .addGroup(jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWithBackgroundMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(GameTitle)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWithBackgroundMenuLayout.createSequentialGroup()
                         .addGroup(jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -117,8 +127,8 @@ public class Menu extends javax.swing.JFrame {
             jPanelWithBackgroundMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelWithBackgroundMenuLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(GameTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(StartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(OptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,19 +137,76 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(214, 214, 214))
         );
 
+        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
+        menuPanel.setLayout(menuPanelLayout);
+        menuPanelLayout.setHorizontalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelWithBackgroundMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        menuPanelLayout.setVerticalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanelWithBackgroundMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        parentPanel.add(menuPanel, "card3");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Game Panel");
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
+        gamePanel.setLayout(gamePanelLayout);
+        gamePanelLayout.setHorizontalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(jLabel1))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(jButton1)))
+                .addContainerGap(275, Short.MAX_VALUE))
+        );
+        gamePanelLayout.setVerticalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jLabel1)
+                .addGap(48, 48, 48)
+                .addComponent(jButton1)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+
+        parentPanel.add(gamePanel, "card2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelWithBackgroundMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(parentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelWithBackgroundMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(parentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartButtonActionPerformed
+        // TODO add your handling code here:
+        parentPanel.removeAll();
+        parentPanel.add(gamePanel);
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_StartButtonActionPerformed
 
     private void OptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionButtonActionPerformed
         // TODO add your handling code here:
@@ -149,6 +216,14 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_QuitButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        parentPanel.removeAll();
+        parentPanel.add(menuPanel);
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,20 +242,20 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GameFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new GameFrame().setVisible(true);
             }
         });
     }
@@ -194,29 +269,17 @@ public class Menu extends javax.swing.JFrame {
         }
         return res;
     }
-    
-    private void setButtonIcon(JButton button){
-        ImageIcon defaultIcon = new ImageIcon("ressources/" + "ButtonNormal.png");
-        ImageIcon pressedIcon = new ImageIcon("ressources/" + "ButtonPressed.png");
-        
-        
-        if(defaultIcon != null && pressedIcon != null){ 
-            button.setIcon(defaultIcon);
-            button.setPressedIcon(pressedIcon);
-        }else{
-            System.out.print("button not loaded");
-        }
-        
-        button.setBorderPainted(false);
-        button.setContentAreaFilled(false);
-        button.setFocusPainted(false);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel GameTitle;
     private components.JButtonCustom OptionButton;
     private components.JButtonCustom QuitButton;
     private components.JButtonCustom StartButton;
+    private javax.swing.JPanel gamePanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private components.JPanelWithBackground jPanelWithBackgroundMenu;
+    private javax.swing.JPanel menuPanel;
+    private javax.swing.JPanel parentPanel;
     // End of variables declaration//GEN-END:variables
 }
