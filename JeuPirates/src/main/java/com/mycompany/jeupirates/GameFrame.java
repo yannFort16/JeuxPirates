@@ -56,6 +56,9 @@ public class GameFrame extends javax.swing.JFrame {
         gamePanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        optionPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Argonautes");
@@ -150,6 +153,8 @@ public class GameFrame extends javax.swing.JFrame {
 
         parentPanel.add(menuPanel, "card3");
 
+        gamePanel.setPreferredSize(new java.awt.Dimension(720, 480));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Game Panel");
 
@@ -186,6 +191,42 @@ public class GameFrame extends javax.swing.JFrame {
 
         parentPanel.add(gamePanel, "card2");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel2.setText("Option Panel");
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout optionPanelLayout = new javax.swing.GroupLayout(optionPanel);
+        optionPanel.setLayout(optionPanelLayout);
+        optionPanelLayout.setHorizontalGroup(
+            optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(optionPanelLayout.createSequentialGroup()
+                .addGroup(optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(optionPanelLayout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(jLabel2))
+                    .addGroup(optionPanelLayout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(jButton2)))
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        optionPanelLayout.setVerticalGroup(
+            optionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(optionPanelLayout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jLabel2)
+                .addGap(48, 48, 48)
+                .addComponent(jButton2)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+
+        parentPanel.add(optionPanel, "card4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -210,6 +251,10 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void OptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionButtonActionPerformed
         // TODO add your handling code here:
+        parentPanel.removeAll();
+        parentPanel.add(optionPanel);
+        repaint();
+        revalidate();
     }//GEN-LAST:event_OptionButtonActionPerformed
 
     private void QuitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtonActionPerformed
@@ -224,6 +269,14 @@ public class GameFrame extends javax.swing.JFrame {
         repaint();
         revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        parentPanel.removeAll();
+        parentPanel.add(menuPanel);
+        repaint();
+        revalidate();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,9 +330,12 @@ public class GameFrame extends javax.swing.JFrame {
     private components.JButtonCustom StartButton;
     private javax.swing.JPanel gamePanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private components.JPanelWithBackground jPanelWithBackgroundMenu;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JPanel optionPanel;
     private javax.swing.JPanel parentPanel;
     // End of variables declaration//GEN-END:variables
 }
